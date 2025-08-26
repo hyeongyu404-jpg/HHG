@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자열 메서드 기초 응용</title>
+<style>
+    /* 기본 스타일 초기화 */
+    *{ margin: 0; padding: 0; list-style: none; text-decoration: none; box-sizing: border-box;}
+    body { font-family: sans-serif; padding: 20px; }
+    h1 {
+        margin-top: 20px;
+        font-size: 30px;
+    }
+    p {
+        font-size: 15px;
+        color: #555;
+        margin-bottom: 20px;
+    }
+    /* 입력 상자 스타일 */
+    #input-text {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 15px;
+    }
+    /* 버튼 컨테이너 및 버튼 스타일 */
+    .btn {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px; /* 버튼 사이 간격 */
+    }
+    .btn button {
+        padding: 10px 15px;
+        font-size: 14px;
+        cursor: pointer;
+        border: 1px solid #007bff;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+        transition: background-color 0.2s;
+    }
+    .btn button:hover {
+        background-color: #0056b3;
+    }
+    /* 결과 출력 상자 스타일 */
+    #output {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: #f0f0f0;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        min-height: 50px; /* 최소 높이 지정 */
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+        white-space: pre-wrap; /* 공백과 줄바꿈을 유지하여 표시 */
+        word-wrap: break-word; /* 긴 단어가 상자를 넘어가지 않도록 함 */
+    }
+</style>
+</head>
+<body>
+    <h1>문자열 메서드 기초 응용</h1>
+    <p>아래 상자에 문자열을 입력하고 원하는 기능의 버튼을 눌러보세요.</p>
+    
+    <div id="input">
+        <input type="text" id="input-text" placeholder="예: Hello JavaScript World!">
+    </div>
+
+    <div class="btn">
+        <button>length</button>
+        <button>trim()</button>
+        <button>대소문자 변환</button>
+        <button>includes("java")</button>
+        <button>indexOf("World")</button>
+        <button>slice(6,16)</button>
+        <button>replace("JavaScript","JS")</button>
+        <button>split("")</button>
+        <button>응용: 단어 순서 뒤집기</button>
+        <button>응용: 단어 개수 세기</button>
+    </div>
+
+    <div id="output">
+        결과가 여기에 표시됩니다.
+    </div>
+
+    <script>
+        // 1. 필요한 HTML 요소들을 선택합니다.
+        const inputEl = document.getElementById('input-text');
+        const outputEl = document.getElementById('output');
+        const buttons = document.querySelectorAll('.btn button');
+
+        // 2. 모든 버튼에 대해 클릭 이벤트를 추가합니다.
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // 3. 버튼이 클릭될 때마다 입력 상자의 현재 텍스트를 가져옵니다.
+                const inputText = inputEl.value;
+                const command = button.textContent; // 클릭된 버튼의 텍스트
+                let result; // 결과를 저장할 변수
+
+                // 4. 클릭된 버튼의 텍스트에 따라 다른 동작을 수행합니다. (switch 문 사용)
+                switch (command) {
+                    case 'length':
+                        result = `글자 수: ${inputText.length}`;
+                        break;
+                    case 'trim()':
+                        result = `앞뒤 공백 제거: "${inputText.trim()}"`;
+                        break;
+                    case '대소문자 변환':
+                        result = `대문자: ${inputText.toUpperCase()}\n소문자: ${inputText.toLowerCase()}`;
+                        break;
+                    case 'includes("java")':
+                        // includes는 대소문자를 구분합니다. 'Java'와 'java'는 다릅니다.
+                        result = `'java' 포함 여부: ${inputText.toLowerCase().includes("java")}`;
+                        break;
+                    case 'indexOf("World")':
+                        const index = inputText.indexOf("World");
+                        result = index === -1 ? "'World'를 찾을 수 없습니다." : `'World'의 시작 위치: ${index}`;
+                        break;
+                    case 'slice(6,16)':
+                        result = `6~15번째 글자 추출: "${inputText.slice(6, 16)}"`;
+                        break;
+                    case 'replace("JavaScript","JS")':
+                        result = `문자열 치환: "${inputText.replace("JavaScript", "JS")}"`;
+                        break;
+                    case 'split("")':
+                        // 결과가 배열이므로, 보기 좋게 콤마와 공백으로 연결해줍니다.
+                        result = `글자 단위로 나누기: [${inputText.split("").join(", ")}]`;
+                        break;
+                    case '응용: 단어 순서 뒤집기':
+                        result = `단어 순서 뒤집기: "${inputText.split(' ').reverse().join(' ')}"`;
+                        break;
+                    case '응용: 단어 개수 세기':
+                        // trim()으로 양 끝 공백을 제거하고, 빈 문자열이 아닐 경우에만 개수를 셉니다.
+                        const trimmedText = inputText.trim();
+                        if (trimmedText === '') {
+                            result = '단어 개수: 0';
+                        } else {
+                            // \s+는 하나 이상의 연속된 공백(스페이스, 탭 등)을 의미합니다.
+                            const wordCount = trimmedText.split(/\s+/).length;
+                            result = `단어 개수: ${wordCount}`;
+                        }
+                        break;
+                    default:
+                        result = '알 수 없는 명령입니다.';
+                }
+
+                // 5. 계산된 결과를 output div에 텍스트로 넣어줍니다.
+                outputEl.textContent = result;
+            });
+        });
+    </script>
+</body>
+</html>

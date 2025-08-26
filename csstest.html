@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        nav ul{
+            list-style: none;
+
+        }
+        nav ul li{
+            position: relative;
+        }
+        nav ul li ul{
+            position: absolute;
+            top:100%;
+            display:none;
+        }
+
+        nav ul li:hover > ul {
+            display: block;
+        }
+
+        nav ul li:nth-child(odd){
+            color: blue;
+        }
+        nav ul li:nth-child(even){
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>메뉴1
+                <ul>
+                    <li>서브메뉴1</li>
+                    <li>서브메뉴2</li>
+                    <li>서브메뉴3</li>
+                </ul>
+            </li>
+            <li>메뉴2</li>
+            <li>메뉴3</li>
+            <li>메뉴4</li>
+        </ul>
+    </nav>
+</body>
+</html>

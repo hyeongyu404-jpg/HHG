@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    *{margin: 0; padding: 0; list-style: none; text-decoration: none;}
+
+    body{
+        width: 100vw;
+        height: 100vh;
+        background-color: aliceblue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    #box{
+        width: 500px;
+        height: 500px;
+        background-color: rgba(199, 199, 199, 0.922);
+        border: 2px double rgb(33, 33, 33);
+        border-radius: 2%;
+        /* border-style: dotted; */
+    }
+    #btn{
+        width: 120px;
+        height: 50px;
+        border: 2px solid rgba(78, 78, 78, 0.621);
+        border-radius: 5px;
+        margin-bottom: 10px;
+        box-shadow: 1px 1px 10px rgba(198, 198, 198, 0.184);
+    }
+    </style>
+</head>
+<body>
+    <button id="btn">일시정지</button>
+    <div id="box">
+        <div id="circle"></div>
+    </div>
+    
+</body>
+</html>

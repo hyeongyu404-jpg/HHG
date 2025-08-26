@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outBox{
+            width: 300px;
+            height: 500px;
+            background-color: thistle;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 20px;
+            position: relative;
+        }
+        .top{
+            position: absolute;
+            width: 90px;
+            height: 18px;
+            background-color: black;
+            border-radius: 30px;
+            top: 10px;
+        }
+
+        .outBox h1{
+            position: absolute;
+            top: 50px;
+        }
+
+        .outBox .cBox{
+            width: 220px;
+            height: 170px;
+            background-color: aliceblue;
+            position: absolute;
+            top: 150px;
+        }
+        .outBox .text2{
+            position: absolute;
+            bottom: 130px;
+        }
+        .outBox .text3{
+            position: absolute;
+            bottom: 90px;
+        }
+        .outBox .inBox{
+            position: absolute;
+            bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="outBox">
+        <div class="top"></div>
+        <h1>숫자 맞추기 게임</h1>
+        <div class="cBox"></div>
+        <div class="text2">UP/DOWN/BINGO!</div>
+        <div class="text3">남은 찬스 : </div>
+        <div class="inBox">
+            <input type="text" placeholder="1부터 10까지의 수">
+            <button>시작</button>
+            <button>재도전</button>
+        </div>
+    </div>
+    <script>
+
+        let cBox = document.querySelector(".cBox")
+        let text2 = document.querySelector(".text2")
+        let text3 = document.querySelector(".text3")
+        let input = document.querySelector(".inBox input")
+        let startBtn = document.querySelectorAll(".inBox button")[0] 
+        let resetBtn = document.querySelectorAll(".inBox button")[1]        
+
+        let comNum = () => Math.floor( Math.random() * 10 ) + 1
+        let answer = comNum()
+        let chanceNum = 5
+
+
+        function gameStart(){
+            let kk = input.value.trim()
+            let userNum = Number( kk )
+
+            if( userNum < 1 || userNum >10){
+                text2.innerText = "범위는 1~10"
+                input.focus();
+                return
+            }
+
+            if( userNum > answer) {
+                 text2.innerText = "down"
+                 
+            }else if( userNum < answer ){
+                 text2.innerText = "up"
+
+            }else{
+                 text2.innerText = "bingo"
+                 gameEnd()
+                 return
+            }
+            cBox.innerText = userNum;
+            chanceNum--
+            text3.innerText = '남은 찬스는 :' + chanceNum;
+
+            if( chanceNum <=0 ){
+               text2.innerText = "안타깝네요 기회를 소진하셨습니다  정답은!" + answer
+               gameEnd()
+
+            }
+
+        }
+
+        function gameEnd(){
+            input.disabled = true
+            startBtn.disabled = true
+        }
+
+        function gameReset(){
+            input.disabled = false
+            startBtn.disabled = false
+            answer = comNum();
+            chanceNum = 5
+            text2.innerText = "UP/DOWN/BINGO!"
+            input.value =""
+            input.focus();
+        }
+
+        startBtn.addEventListener("click", gameStart )
+        resetBtn.addEventListener("click", gameReset )
+    </script>
+</body>
+</html>
+</body>
+</html>
