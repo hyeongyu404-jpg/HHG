@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+        //--------------------------
+        //정규식
+
+        // let tex = "hello World"
+        // let tex2 ="happy day"
+        // console.log( /^hello /.test(txt)) // true (( hello로 시작))
+        // console.log( /^hello /.test(tex2)) // false (( hello로 시작))
+        // console.log( / day$ /.text(tex2)) // true ((day))
+        // console.log( / h.t / .text("ht")) // false (( .모든글자(갯수1) ))
+        // console.log( / h.t / .text("hat")) // false (( .모든글자(갯수1) ))
+        // console.log( / h+t / .text("hhhhht")) // true (( h가 한번 이상 반복 ))
+        // console.log( / h? / .text("tt")) // true (( h가 0 또는 1번 ))
+        // console.log( / h*t / .text("ht")) // true (( 0~여러글자 모든 글자 갯수 1 ))
+        // console.log( / h*t / .text("haaat")) // true (( 0~여러글자 모든 글자 갯수 1 ))
+
+        // console.log( / dog | cat /.text("i like dog")) // true 
+        // console.log( / dog | cat /.text("i like god")) // false
+
+        // let txt3 = "abc123"
+
+        // console.log( /(abc)+/.test(txt3)) // true ( abc가 1번 반복 )
+        // console.log( /(abcd)+/.test(txt3)) // false
+
+        // let tex4 = "cat bat mat fat"
+        // let rel = tex4.match(/[bf]at/g)
+        // let re12 = tex4.match(/[^bf]at/g)
+        // // /[A-Za-z0-9]/
+        // console.log(rel) // bat, fat
+        // consolo.log(re12) // cat, mat
+
+        // let tex5 ="happy day"
+        // console.log( tex5.match(/\s+/g)) // 공백을 표시
+        // console.log( tex5.match(/\S+/g)) // 공백을 제외하고 표시 happy, day 
+
+        // let text6 = "age is 20 code is a12"
+        // console.log( text6.match(/\d+/g)) // 20, 12
+        // console.log( text6.match(/\D+/g)) // 숫자를 제외한 나머지 -> "age" " is" "code" "is" "a"
+
+        // let text7 = "at cat category"
+        // console.log( text7.match(/\bat/g)) //at 제일 앞에 at
+        // console.log( text7.match(/at\b/g)) // 제일 끝에 at
+
+        // let text8 = "abc_123 !@#"
+        // console.log (text8.match(/\w+/g)) // abc_123
+        // console.log (text8.match(/\W+/g)) // " ","!@#"
+
+        let text9 = "helloa"
+        console.log((/hello(?=\d)/g).test(text9)) // false
+
+        let text10 ="hello123"
+        console.log( (/hello(?=\d)/g).test(text10)) //true
+
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 결합선택자 */
+        ul li{
+            color: red;
+        }
+        nav > ul { list-style: none;}
+        h1 + p {
+           font-weight: bold; 
+        }
+        h1 ~ p {
+            color: gray;
+        }
+
+        /* 속성 선택자 */
+        [title] { color: green;}
+        input[type=text] {
+            border: 2px solid blue;
+        }
+        a[href^="https"] { background-color: skyblue;}
+        img[src$=".png"] { border: 2px solid gold;}
+        div[class*="card"] { background-color: pink;}
+
+        /* 가상 클래스 선택자 */
+        li:first-child { color: red;}
+        li:last-child { color: orange;}
+        li:nth-child(2) { color: darkgreen;}
+
+        input:focus {
+            background-color: gold;
+        }
+
+        div:not(.active) { background-color: skyblue;}
+
+        /* a태그 가상 클래스 선택자 */
+        a:link { color:blue }
+        a:visited { color:purple }
+        a:hover { color: red }
+        a:active { color:brown }
+    </style>
+</head>
+<body>
+    <!-- 결합 선택자 -->
+     <nav>
+        <ul>
+            <li>메뉴1(빨강)</li>
+            <li>메뉴2</li>
+        </ul>
+     </nav>
+     <h1>여기는 제목</h1>
+     <p>제목 바로 뒤 p (굵게)</p>
+     <p>제목 그뒤(형제) p (회색)</p>
+     <p>제목 그뒤(형제) p (회색)</p>
+
+    <!-- 속성 선택자 -->
+     <input type="text" placeholder="여기는 텍스트 속성" />
+     <a href="https://naver.com" title="네이버로 감">https속성</a><br>
+     <a href="/img/abcd">내부링크</a><br>
+     <img src="/img/abcd.png" alt="png file" />
+     <div class="card-box1">클래스 이름에 card 있음</div>
+
+         <!-- 가상 클래스 선택자 -->
+    <ul>
+        <li>첫번째</li>
+        <li>두번째</li>
+        <li>세번째</li>
+        <li>마지막</li>
+    </ul>  
+    <input type="text" placeholder="여기는 연습용" />
+    <div class="active">나는 엑티브</div>
+    <div class="on">나는 온</div>
+    
+</body>
+</html>

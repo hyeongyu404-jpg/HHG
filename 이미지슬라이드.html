@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 변경</title>
+    <style>
+        *{ margin: 0; padding: 0;}
+        body{ width: 100vw; padding-top: 70px;}
+        nav{ width: 100%; height: 70px; background-color: skyblue;}
+        section{
+            width: 100%;
+            height: calc(100vh - 70px);
+            
+        }
+        .inBox{
+            width: 100%;
+            height: 100%;
+            background-color: beige;
+            display: flex;
+            /* justify-content: center;
+            align-items: center; */
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+        .imgBox{
+            width: 800%;
+            height: 90%;
+            display: flex;
+            transition: all 0.5s linear;
+           
+        }
+
+        .imgBox .img{
+            width: calc(100% / 8);
+            height: 100%;
+            background-position: left top;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 100px;
+        }
+        
+        .img1{ background-image: url(./guess/guess1.jpg);}
+        .img2{ background-image: url(./guess/guess2.jpg);}
+        .img3{ background-image: url(./guess/guess3.webp);}
+        .img4{ background-image: url(./guess/guess4.jpg);}
+        .img5{ background-image: url(./guess/guess5.jpg);}
+        .img6{ background-image: url(./guess/guess6.jpg);}
+
+        .inBox button{
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 50;
+        }
+
+        .btn1{
+            left:50px;
+            top:50%;
+            transform: translate(-50%, -50%);
+        }
+
+         .btn2{
+            right:50px;
+            top:50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <nav>여기는 네비</nav>
+    <section>
+        <div class="inBox">
+                <div class="imgBox" ontransitionend ="fixloop()">
+                    <!-- 추가 : 맨 위에 "마지막 이미지를 복제" -->
+                    <div class="img img6"></div>
+
+
+                    <div class="img img1">img1</div>
+                    <div class="img img2">img2</div>
+                    <div class="img img3">img3</div>
+                    <div class="img img4">img4</div>
+                    <div class="img img5">img5</div>
+                    <div class="img img6">img6</div>
+
+
+                    <!-- 추가 : 맨 뒤에 "첫번째 이미지를 복제" -->
+                    <div class="img img1">img1</div>
+
+                </div>
+                
+                    <button class="btn1" onclick="prevImg()">◀</button>
+                    <button class="btn2" onclick="nextImg()">▶</button>
+        </div>
+    </section>
+    <script>
+        let imgBox = document.querySelector(".imgBox") //이미지 박스
+
+        let index = 1; // 시작위치는 이미지 실제 첫장 , 0은 마지막 이미지
+        let total  = document.querySelectorAll(".imgBox .img").length; // 5개
+        let step = 100 / total // 이미지 크기 100%/5(갯수) ==> 100% 크기에서 20% 
+                                                           // 실제 500%에서 100%
+        function moveImg(){
+            imgBox.style.transform = `translateX( ${-step*index}%)`
+            // 1개의 이미지 크기만큼 밀어서 보이게 하기 -20*1%, -20*2%, 
+        }
+        function nextImg(){
+            index++ // 이미지 위치 변경
+            moveImg(); // 위치 변경된 이미지 보이게 하기
+        }
+
+        function prevImg(){
+            index-- // 이미지 위치 변경
+            moveImg() // 위치 변경된 이미지 보이게 하기
+        }
+
+            moveImg()
+        function fixloop(){
+            if( index === total -1 ){ // 이미지 마지막장이면
+                imgBox.style.transition = "none" // 트랜지션을 삭제하고
+                index = 1 // 그림의 위치를 알려주는 인덱스를 첫번째로 변경하고
+                moveImg(); // 변경된 인덱스만큼 이미지를 첫번째 이미지가 보이게
+                imgBox.offsetWidth; // 트랜지션 복구 타이밍 확보
+                imgBox.style.transition = "0.5s" // 트랜지션을 다시 작동하게
+            }else if( index === 0 ){ // 이미지가 처음이면
+                imgBox.style.transition = "none"
+                index = total-2 // 실제 마지막 이미지가 있는 위치로 변경
+                moveImg(); // 위치 변경된 마지막 이미지 보이게 하기
+                imgBox.offsetWidth; // 트랜지션 복구 타이밍 확보
+                imgBox.style.transition = "0.5s" // 트랜지션 다시 시작
+            }
+        }
+    </script>
+</body>
+</html>

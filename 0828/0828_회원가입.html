@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0; list-style: none; text-decoration: none;}
+
+        body{
+            width: 100vw;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        header{
+            padding: 30px 0 50px;
+            width: 100%;
+            /* height: 120px; */
+            /* background-color: aqua; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        header img{
+            width: 160px;
+        }
+        .outBox{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .inputBox{
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .inputBox input{
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #707070;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+        .inputBox p {
+            font-size: 12px;
+            color: rgb(48, 48, 48);
+        }
+        .inputBox2 {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            font: 15px;
+            color: #707070;
+        }
+    </style>
+</head>
+<body>
+    <header><img src="img/쿠팡.png" alt="logo"></header>
+    <div class="outBox">
+        <div class="inputBox">
+            <p>회원정보를 입력해주세요</p>
+            <input type="email" id="userid" placeholder="아이디(이메일)"><br>
+            <input type="password" id="userpw" placeholder="비밀번호"><br>
+            <input type="password" id="uswerpw2" placeholder="비밀번호확인"><br>
+            <input type="text" id="username" placeholder="이름"><br>
+            <input type="number" id="phon" placeholder="휴대폰"><br>
+        </div>
+        
+        <input type="checkbox" id="cbox">
+            <label> 모두 확인하였으며 동의합니다</label>
+            <p>전체 동의에는 필수 및 선택 정보에 대한 동의가 포함되어 있으며, 개별적으로 동<br>
+                의를 선택 하실 수 있습니다. 선택 항목에 대한 동의를 거부하시는 경우에도 서비<br>
+                스 이용이 가능합니다</p>
+        
+            <div class="inputBox2">
+            <input type="checkbox" id="mcbox1">
+            <label>[필수] 만 14세 이상입니다</label><br>
+            <input type="checkbox" id="mcbox2">
+            <label>[필수] 쿠팡 이용양관 동의</label><br>
+            <input type="checkbox" id="mcbox3">
+            <label>[필수] 전자금융거래 이용약관 동의</label><br>
+            <input type="checkbox" id="mcbox4">
+            <label>[필수] 개인정보 수집 및 이용 동의</label><br>
+            <input type="checkbox" id="mcbox5">
+            <label>[필수] 개인정보 제3자 제공 동의</label><br>
+            <input type="checkbox" id="mcbox6">
+            <label>[선택] 마케팅 목적의 개인정보 수집 및 이용 동의</label><br>
+            <input type="checkbox" id="mcbox7">
+            <label>[선택] 광고성 정보 수신동의</label><br>
+            <input type="checkbox" id="mcbox8">
+            <label>[선택] 이메일 수신 동의</label><br>
+            <input type="checkbox" id="mcbox9">
+            <label>[선택] SMS, SNS 수신 동의</label><br>
+            <input type="checkbox" id="mcbox10">
+            <label>[선택] 앱 푸시 수신 동의</label><br>
+        </div>
+    </div>
+</body>
+</html>

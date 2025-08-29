@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title></title>
+        <style>
+            *{box-sizing:border-box; margin: 0; padding: 0; list-style: none; text-decoration: 0;}
+            body{ color: rgb(29, 29, 29);}
+            nav{
+                position: sticky;
+                left:0; top: 0;
+                width: 100%;
+                background-color: darkblue;
+            }
+            section{
+                background-color: skyblue;
+                padding: 10px;
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>여기는 네비</nav>
+         <section id="01">
+            <style>
+                .ex1Grid{
+                    display: grid;
+                    grid-template-columns: 100px 100px 100px ;  /*열*/
+                    gap:10px;
+                }
+                .ex1Grid > div{
+                    background-color: pink;
+                    padding: 10px;
+                    text-align: center;
+                }
+            </style>
+            <h2>1. display : grid</h2>
+            <div class="ex1Grid">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+            </div>
+        </section>
+        <section id="02">
+            <style>
+                .ex2Grid {
+                    display: grid;
+                    grid-template-columns: 120px 1fr 2fr; /*fr=비율*/
+                    gap: 10px;
+                    grid-template-rows: 80px 100px;
+                }
+
+                .ex2Grid > div{
+                    background-color: green;
+                    padding: 10px;
+                }
+            </style>
+            <h2>2. grid-template-rows</h2>
+            <div class="ex2Grid">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+            </div>
+        </section>
+
+        <section id="03">
+            <style>
+                .ex3Grid {
+                   display: grid;
+                   grid-template-columns: repeat(4,1fr);
+                   gap:10px;
+                }
+
+                .ex3Grid > div{
+                    background-color: aquamarine; padding: 10px;
+                }
+            </style>
+            <h2>3.repeat()</h2>
+            <div class="ex3Grid">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+            </div>
+        </section>
+
+        <section id="04">
+            <style>
+                .ex4Grid {
+                    display: grid;
+                    grid-template-columns: repeat(3, minmax(100px, 1fr)); /*반복*/                }
+
+                .ex4Grid > div{
+                    background-color: gold;
+                    padding: 10px;
+                }
+            </style>
+            <h2>4.minmax()</h2>
+            <div class="ex4Grid">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+            </div>
+        </section>
+
+        <section id="05">
+            <style>
+                .ex5Grid {
+                    display:flex;
+                    gap:10px;
+                    flex-wrap: wrap;
+                }
+                .auto {
+                    display: grid;
+                    gap: 10px;
+                    border: 1px dashed #333;
+                    width: 800px;
+                }
+                .ex5Grid .autofill {
+                    grid-template-columns: repeat( auto-fill, minmax(100px, 1fr));
+                }
+
+                .ex5Grid .autofill > div {
+                    background-color: rgb(255, 97, 40);
+                }
+
+                .ex5Grid .autofit {
+                    grid-template-columns: repeat( auto-fit, minmax(100px, 1fr));
+                }
+
+                .ex5Grid .autofit > div {
+                    background-color: rgb(124, 255, 36);
+                }
+                    
+                
+            </style>
+            <h2>5.auto-fill vs auto-fit()</h2>
+            <div class="ex5Grid">
+                <div class="auto autofill">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                </div>
+                <div class="auto autofit">
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="06">
+            <style>
+                .ex6Grid{
+                    display: flex;
+                    gap: 10px;
+                    flex-wrap: wrap;
+                    border: 4px double blue;
+                    width: 800px;
+                }
+                
+                .rowGap{
+                    grid-template-columns: repeat(3, 100px);
+                    row-gap: 30px;
+                }
+
+                .columnGa{
+                    grid-template-columns: repeat(3, 100px);
+                    column-gap: 30px;
+                }
+
+        
+                
+            </style>
+            <h2>6. gap / row-rap / colum-gap </h2>
+            <div class="ex6Grid">
+                <div class="rowGap">
+                    <div>a1</div>
+                    <div>a2</div>
+                    <div>a3</div>
+                    <div>a4</div>
+                    <div>a5</div>
+                    <div>a6</div>
+                </div>
+                <div class="columuGap">
+                    <div>b1</div>
+                    <div>b2</div>
+                    <div>b3</div>
+                    <div>b4</div>
+                    <div>b5</div>
+                    <div>b6</div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

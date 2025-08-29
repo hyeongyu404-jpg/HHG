@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025-08-29</title>
+    <style>
+    </style>
+</head>
+<body>
+    <script>
+        function ex01(){
+            let child = window.open("https://www.naver.com", "_blank", "toolbar = yes, scrollbar = yes, resizeable = yes, top=200, left=200, width=500, ");
+            if(child) child.focus();
+        }
+
+        function ex02(){
+            setTimeout(() => { window.location.href="https://www.naver.com"; } , 3000);
+        }
+
+        function ex03(){
+            history.back();
+        }
+
+        function ex04(){
+            setTimeout(() => { window.close(); }, 2000);
+        }
+
+        function ex05(){
+            alert("error!!");
+        }
+
+        function ex06(){
+            let age = prompt("당신의 나이는?", "20");
+            alert(`당신의 나이는 : ${age}`)
+        }
+        
+        function ex7(){
+            let res = confirm("정말 삭제하시겠습니까?")
+            if (res){
+                alert("삭제하였습니다")
+            }else{
+                alert("취소하셨습니다")
+            }
+        }
+
+        function ex08(){
+            window.localStorage.setItem("user", "hong");
+            document.write(`저장된 이름은 : ${.window.localStorage.getItem()}`)
+        }
+
+        // ex08()
+
+        function ex9(){
+            localStorage.clear()
+        }
+
+        function ex10(){
+            document.write("안녕하세요");
+            window.print();
+        }
+
+        // ex10()
+
+        function ex(){
+            let count = 0;
+            let timer = setInterval(()=>{
+                document.write(`안녕하세요${count}<br>`)
+                count++;
+                if(count >=5){
+                    clearInterval( timer )
+                }
+            },1000)
+        }
+
+        // ex11()
+
+        function ex12(){
+            setTimeout (() => {
+                alert("나는 2초 후에 나타남");
+            }, 2000);
+        }
+
+        // ex12();
+
+        function ex13(){
+            document.write(`스크롤 y값은 : ${window.scrollY}, 화면높이: ${window.innerHeight}`)
+        }
+        // ex13()
+
+        function ex14(){
+            if(window.navigator.onLine){
+                document.write("연결이 완료되었습니다")
+            }else{
+                document.write("오프라인상태입니다")
+            }
+        }
+
+        ex14()
+    </script>
+</body>
+</html>

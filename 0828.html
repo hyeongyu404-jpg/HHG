@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0; list-style: none; text-decoration: none;}
+        body{
+            box-sizing: border-box;
+        }
+
+        .wrap{
+            width: 1000px;
+            /* height: 1000px; */
+            margin: 30px auto;
+            /* background-color: skyblue; */
+        }
+
+        .timeline{
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .timeline::before{
+            content: "";
+            position: absolute;
+            left:50%; bottom: 0;
+            width: 4px;
+            background-color: darkblue;
+            transform: translate(-50%);            
+        }
+
+        .item{
+            position: absolute;
+            width: calc(50% - 40px);
+            height: 90px;
+            background-color: skyblue;
+            border-radius: 10px;
+            margin: 20px;
+        }
+
+        .item:nth-child(odd)::before{right: -40px;}
+        .item:nth-child(even)::before{ left: -40px;}
+
+        .item::before{
+            content:"";
+            position: absolute;
+            top: 44px;
+            height: 2px;
+            width: 40px;
+            background-color: darkblue;
+        }
+
+    </style>    
+</head>
+<body>
+    <div class="wrap">
+        <ul class="timeline">
+            <li class="item"></li>
+            <li class="item"></li>
+            <li class="item"></li>
+            <li class="item"></li>
+            <li class="item"></li>
+            <li class="item"></li>
+        </ul>
+    </div>
+</body>
+</html>

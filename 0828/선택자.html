@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .beforBox::before{
+            content: "hot";
+            color: gold;
+            background-color: red;
+        }
+        .afterBox::after{
+            content:"sale";
+            color:red;
+            background-color: gold;
+        }
+
+        .firstlineBox::first-line{
+            font-weight: bold;
+        }
+        .seleBox::selection {
+            background-color: gold;
+            color: red;
+        }
+
+        /* 최신선택자 */
+        ::is(h1,h2,h3).iss {
+            color: blue;
+            text-decoration: underline;
+        }
+
+
+        :where(.box3 h1){
+            color: red;
+
+        }
+        .box3 h1{
+            color:skyblue;
+        }
+        .article:has(img){
+            border:3px solid darkgreen;
+        }
+        
+        .box5 input:focus-visible{
+            border: 3px solid red;
+            background-color: gold;
+        }
+    </style>
+</head>
+<body>
+    <!-- 가상 요소 선택자-->
+    <div class="box1">
+        <p class="beforBox">여기는 비포합니다</p>
+        <p class="afterBox">여기는 애프터합니다</p>
+        <p class="firstlineBox">동해물과 백두산이 마르고 닳도록
+            <br>하느님이 보우하사 우리나라 만세
+        </p>
+        <p class="seleBox">여기는 드래그하면 색상이 변경되는 셀렉션을 사용합니다.</p>
+    </div>
+
+    <!--최신 석택자-->
+    <div class="box2">
+        <h1 class="iss">안녕하세요1</h1>
+        <h1>안녕하세요1</h1>
+        <h1 class="iss">안녕하세요2</h1>
+        <h1>안녕하세요2</h1>
+        <h1 calss="iss">안녕하세요3</h1>
+    </div>
+
+    <div class="box3">
+        <h1>안녕하세요1</h1>
+
+        <h1>안녕하세요2</h1>
+
+        <h1>안녕하세요3</h1>
+    </div>
+    <article class="box4">
+        <h1>여기는 아티클 안입니다.</h1>
+        <img src="img/쿠팡.png" alt="logo" width="2000px" height="200px" />
+        <p>여기는 has를 사용한 구역입니다</p>
+    </article>
+
+    <div class="box5">
+        <h2>여기는 포커스</h2>
+        <label> 이름 : <input type="text"> </label>
+    
+</body>
+</html>
